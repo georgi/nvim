@@ -2,7 +2,7 @@ return {
   {
     "jackMort/ChatGPT.nvim",
     keys = {
-      { "<leader>cg", "<CMD>ChatGPT<CR>" },
+      { "<leader>cgt", "<CMD>ChatGPT<CR>" },
       { "<leader>cga", "<CMD>ChatGPTActAs<CR>" },
       { "<leader>cge", "<CMD>ChatGPTEditWithInstructions<CR>" },
     },
