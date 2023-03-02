@@ -8,6 +8,11 @@ return {
       { "<leader>tl", ":TestLast<CR>" },
       { "<leader>tv", ":TestVisit<CR>" },
     },
+    config = function()
+      vim.g["test#strategy"] = "neovim"
+      vim.g["test#preserve_screen"] = 1
+      vim.g["test#neovim#term_position"] = "vertical"
+    end,
   },
   {
     "ThePrimeagen/refactoring.nvim",
@@ -30,5 +35,30 @@ return {
     config = function()
       require("better_escape").setup()
     end,
+  },
+  {
+    "xiyaowong/nvim-transparent",
+    config = function()
+      require("transparent").setup({
+        enable = true,
+        extra_groups = { "NvimTreeNormal", "FloatBorder" },
+      })
+      require("notify").setup({
+        stages = "fade",
+        timeout = 3000,
+        background_colour = "#000000",
+        opacity = 0.8,
+      })
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      sources = require("cmp").config.sources({
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
+      }),
+    },
   },
 }
