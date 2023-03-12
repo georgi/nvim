@@ -41,24 +41,42 @@ return {
     config = function()
       require("transparent").setup({
         enable = true,
-        extra_groups = { "NvimTreeNormal", "FloatBorder" },
+        -- extra_groups = { "NvimTreeNormal", "FloatBorder" },
       })
-      require("notify").setup({
-        stages = "fade",
-        timeout = 3000,
-        background_colour = "#000000",
-        opacity = 0.8,
-      })
+      -- require("notify").setup({
+      --   stages = "fade",
+      --   timeout = 3000,
+      --   background_colour = "#000000",
+      --   opacity = 0.8,
+      -- })
     end,
   },
   {
     "hrsh7th/nvim-cmp",
-    opts = {
-      sources = require("cmp").config.sources({
-        { name = "nvim_lsp" },
-        { name = "buffer" },
-        { name = "path" },
-      }),
-    },
+    config = function()
+      local cmp = require("cmp")
+      cmp.setup({
+        completion = {
+          completeopt = "noselect",
+        },
+        preselect = cmp.PreselectMode.None,
+        mapping = {
+          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-e>"] = cmp.mapping.close(),
+          ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+          }),
+        },
+        sources = {
+          { name = "nvim_lsp" },
+          { name = "buffer" },
+          { name = "path" },
+        },
+      })
+    end,
   },
+  { "ThePrimeagen/vim-be-good" },
 }
