@@ -43,12 +43,14 @@ return {
         enable = true,
         -- extra_groups = { "NvimTreeNormal", "FloatBorder" },
       })
-      -- require("notify").setup({
-      --   stages = "fade",
-      --   timeout = 3000,
-      --   background_colour = "#000000",
-      --   opacity = 0.8,
-      -- })
+      if not vim.g.neovide then
+        require("notify").setup({
+          stages = "fade",
+          timeout = 3000,
+          background_colour = "#000000",
+          opacity = 0.8,
+        })
+      end
     end,
   },
   {
@@ -57,10 +59,10 @@ return {
       local cmp = require("cmp")
       cmp.setup({
         completion = {
-          completeopt = "noselect",
+          completeopt = "menu,menuone,noselect",
         },
         preselect = cmp.PreselectMode.None,
-        mapping = {
+        mapping = cmp.mapping.preset.insert({
           ["<C-d>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
@@ -69,7 +71,7 @@ return {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           }),
-        },
+        }),
         sources = {
           { name = "nvim_lsp" },
           { name = "buffer" },
