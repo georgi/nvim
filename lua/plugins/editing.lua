@@ -10,8 +10,8 @@ return {
     },
     config = function()
       vim.g["test#strategy"] = "neovim"
-      vim.g["test#preserve_screen"] = 1
-      vim.g["test#neovim#term_position"] = "vertical"
+      vim.g["test#preserve_screen"] = 0
+      vim.g["test#neovim#term_position"] = "horizontal"
     end,
   },
   {
