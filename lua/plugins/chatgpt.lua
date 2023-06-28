@@ -1,17 +1,22 @@
 return {
-  {
-    "jackMort/ChatGPT.nvim",
-    lazy = false,
-    keys = {
-      { "<leader>rc", "<CMD>ChatGPTCompleteCode<CR>", "Complete Code With GPT" },
-      { "<leader>rr", "<CMD>ChatGPT<CR>", "Run Chat" },
-      { "<leader>ra", "<CMD>ChatGPTActAs<CR>", "Act as GPT" },
-      { "<leader>re", "<CMD>ChatGPTEditWithInstructions<CR>", "Edit with GPT" },
-    },
-    config = function()
-      require("chatgpt").setup({
-        -- optional configuration
-      })
-    end,
-  },
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --   lazy = false,
+  --   keys = {
+  --     { "<leader>rc", "<CMD>ChatGPTCompleteCode<CR>", "Complete Code With GPT" },
+  --     { "<leader>rr", "<CMD>ChatGPT<CR>", "Run Chat" },
+  --     { "<leader>ra", "<CMD>ChatGPTActAs<CR>", "Act as GPT" },
+  --     { "<leader>re", "<CMD>ChatGPTEditWithInstructions<CR>", "Edit with GPT" },
+  --   },
+  --   config = function()
+  --     require("chatgpt").setup({
+  --       openai_edit_params = {
+  --         model = "gpt-3.5-turbo",
+  --         temperature = 0,
+  --         top_p = 1,
+  --         n = 1,
+  --       },
+  --     })
+  --   end,
+  -- },
 }

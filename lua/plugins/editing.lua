@@ -36,23 +36,23 @@ return {
       require("better_escape").setup()
     end,
   },
-  {
-    "xiyaowong/nvim-transparent",
-    config = function()
-      require("transparent").setup({
-        enable = true,
-        -- extra_groups = { "NvimTreeNormal", "FloatBorder" },
-      })
-      if not vim.g.neovide then
-        require("notify").setup({
-          stages = "fade",
-          timeout = 3000,
-          background_colour = "#000000",
-          opacity = 0.8,
-        })
-      end
-    end,
-  },
+  -- {
+  --   "xiyaowong/nvim-transparent",
+  --   config = function()
+  --     require("transparent").setup({
+  --       enable = true,
+  --       -- extra_groups = { "NvimTreeNormal", "FloatBorder" },
+  --     })
+  --     if not vim.g.neovide then
+  --       require("notify").setup({
+  --         stages = "fade",
+  --         timeout = 3000,
+  --         background_colour = "#000000",
+  --         opacity = 0.8,
+  --       })
+  --     end
+  --   end,
+  -- },
   {
     "hrsh7th/nvim-cmp",
     config = function()
@@ -74,6 +74,7 @@ return {
         }),
         sources = {
           { name = "nvim_lsp" },
+          { name = "LuaSnip" },
           { name = "buffer" },
           { name = "path" },
         },
