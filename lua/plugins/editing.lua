@@ -14,13 +14,6 @@ return {
       vim.g["test#neovim#term_position"] = "horizontal"
     end,
   },
-  {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
   "junegunn/vim-easy-align",
   { "tversteeg/registers.nvim", lazy = false },
   {
