@@ -1,4 +1,5 @@
 return {
+  "bluz71/vim-nightfly-colors",
   {
     "vim-test/vim-test",
     keys = {
